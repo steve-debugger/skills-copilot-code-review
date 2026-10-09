@@ -666,9 +666,247 @@ footer {
 }
 
 .announcement-banner {
-  background-color: #4caf50;
+  background: linear-gradient(90deg, #2e7d32, #43a047);
   color: white;
   text-align: center;
-  padding: 15px;
-  font-weight: bold;
+  padding: 12px 15px;
+  font-weight: 600;
+}
+
+.announcement-banner-item + .announcement-banner-item {
+  margin-top: 6px;
+  padding-top: 6px;
+  border-top: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+#user-status {
+  gap: 10px;
+}
+
+/* Announcements dialog */
+.modal-content.announcements-dialog {
+  max-width: 640px;
+  max-height: 88vh;
+  overflow-y: auto;
+  padding: 24px;
+  border-radius: 12px;
+}
+
+.announcements-dialog h3 {
+  color: var(--primary);
+  font-size: 1.3rem;
+  margin-bottom: 16px;
+}
+
+.dialog-close {
+  position: absolute;
+  top: 12px;
+  right: 14px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: none;
+  background: var(--background);
+  color: var(--text-secondary);
+  font-size: 1.3rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.dialog-close:hover {
+  background: var(--border);
+}
+
+.announcement-form {
+  background: var(--background);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px;
+  margin-bottom: 20px;
+}
+
+.announcement-form h4,
+.announcement-list-title {
+  font-size: 0.95rem;
+  color: var(--text-primary);
+  margin-bottom: 10px;
+}
+
+.announcement-form textarea,
+.announcement-form input[type="date"] {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font: inherit;
+  font-size: 0.9rem;
+  background: var(--surface);
+}
+
+.announcement-form textarea {
+  resize: vertical;
+  min-height: 56px;
+}
+
+.announcement-form textarea:focus,
+.announcement-form input[type="date"]:focus {
+  outline: none;
+  border-color: var(--primary-light);
+  box-shadow: 0 0 0 3px rgba(83, 75, 174, 0.15);
+}
+
+.announcement-form .form-row {
+  display: flex;
+  gap: 12px;
+}
+
+.announcement-form .form-row .form-group {
+  flex: 1;
+  min-width: 0;
+}
+
+.announcement-form .optional {
+  color: var(--text-secondary);
+  font-weight: 400;
+  font-size: 0.75rem;
+}
+
+.announcement-form .required {
+  color: var(--error);
+}
+
+.announcement-form .form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.announcement-form .cancel-btn {
+  background-color: var(--border);
+  color: var(--text-primary);
+}
+
+.announcement-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.announcement-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 12px 14px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--success);
+  border-radius: 8px;
+}
+
+.announcement-item.expired {
+  border-left-color: var(--text-secondary);
+  opacity: 0.75;
+}
+
+.announcement-item.scheduled {
+  border-left-color: var(--warning);
+}
+
+.announcement-item-body {
+  min-width: 0;
+  flex: 1;
+}
+
+.announcement-item-text {
+  font-size: 0.9rem;
+  margin-bottom: 6px;
+  overflow-wrap: anywhere;
+}
+
+.announcement-item-meta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+}
+
+.status-badge {
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-weight: 600;
+}
+
+.status-badge.active {
+  background: var(--success-light);
+  color: var(--success);
+}
+
+.status-badge.scheduled {
+  background: var(--warning-light);
+  color: #8a5a00;
+}
+
+.status-badge.expired {
+  background: var(--border-light);
+  color: var(--text-secondary);
+}
+
+.announcement-item-actions {
+  display: flex;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.announcement-action {
+  padding: 4px 12px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--surface);
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.announcement-action.edit:hover {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: white;
+}
+
+.announcement-action.delete {
+  color: var(--error);
+}
+
+.announcement-action.delete:hover {
+  background: var(--error);
+  border-color: var(--error);
+  color: white;
+}
+
+.announcement-empty {
+  text-align: center;
+  padding: 18px;
+  color: var(--text-secondary);
+  border: 1px dashed var(--border);
+  border-radius: 8px;
+  font-size: 0.85rem;
+}
+
+@media (max-width: 520px) {
+  .announcement-form .form-row {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .announcement-item {
+    flex-direction: column;
+  }
 }
